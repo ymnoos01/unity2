@@ -1,9 +1,13 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class clipboard_selector : MonoBehaviour
 {
     public TMP_Text winText;
+    public Image playAgainButton; // Change GUITexture to Image
+
 
     private static bool hasPlayerWon = false;  // This should be static to persist across instances
     private static int requiredClipboards = 1;//4;      // Set the total number of required coins
@@ -38,6 +42,7 @@ public class clipboard_selector : MonoBehaviour
         }
     }
 
+    //private void WinGame()
     private void WinGame()
     {
         hasPlayerWon = true;
@@ -45,10 +50,29 @@ public class clipboard_selector : MonoBehaviour
         // Show the "You Win" text
         if (winText != null)
         {
-           // winText.text = "You Win!";
+            winText.text = "You Win!";
             winText.gameObject.SetActive(true);
             Debug.Log("Player won the game!");
         }
+
+        // // Show the Play Again button
+        // if (playAgainButton != null)
+        // {
+        //     playAgainButton.enabled = true;
+        // }
+
+        // Show the Play Again button
+        if (playAgainButton != null)
+        {
+            playAgainButton.gameObject.SetActive(true); // Use gameObject.SetActive(true) instead of enabled
+            Debug.Log("Play Again button should be visible.");
+        }
+        else
+        {
+            Debug.LogError("playAgainButton is not assigned!");
+        }
+
     }
+
 }
 //public class clipboard_selector : MonoBehaviour
