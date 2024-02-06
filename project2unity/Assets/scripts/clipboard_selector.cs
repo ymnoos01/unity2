@@ -1,19 +1,55 @@
+// using UnityEngine;
+// using TMPro;
+// using UnityEngine.SceneManagement;
+
+// public class clipboard_selector : MonoBehaviour
+// {
+//     public string nextSceneName = "win_screen"; // Name of the scene to load after winning
+
+//     private static bool hasPlayerWon = false;
+//     private static int requiredClipboards = 1;
+//     private static int collectedClipboards = 0;
+
+//     private void OnTriggerEnter(Collider other)
+//     {
+//         if (other.CompareTag("Player"))
+//         {
+//             ReactToPlayer();
+//         }
+//     }
+
+//     private void ReactToPlayer()
+//     {
+//         if (gameObject.activeSelf)
+//         {
+//             gameObject.SetActive(false);
+//             collectedClipboards++;
+
+//             if (collectedClipboards >= requiredClipboards && !hasPlayerWon)
+//             {
+//                 WinGame();
+//             }
+//         }
+//     }
+
+//     private void WinGame()
+//     {
+//         hasPlayerWon = true;
+//         SceneManager.LoadScene(nextSceneName);
+//     }
+// }
+
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class clipboard_selector : MonoBehaviour
 {
-    public TMP_Text winText;
-    public Button restartButton;
+    public CharacterControllerManager characterControllerManager;
 
+    // Define variables for game state
     private static bool hasPlayerWon = false;
     private static int requiredClipboards = 1;
     private static int collectedClipboards = 0;
-
-    // Reference to the character controller script that controls camera rotation
-    //public CharacterControllerScript characterControllerScript;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,47 +61,32 @@ public class clipboard_selector : MonoBehaviour
 
     private void ReactToPlayer()
     {
-        if (gameObject.activeSelf)
-        {
-            gameObject.SetActive(false);
-            collectedClipboards++;
+        // Disable the clipboard object
+        gameObject.SetActive(false);
 
-            if (collectedClipboards >= requiredClipboards && !hasPlayerWon)
-            {
-                WinGame();
-            }
+        // Increment collected clipboards
+        collectedClipboards++;
+
+        // Check if all clipboards have been collected
+        if (collectedClipboards >= requiredClipboards && !hasPlayerWon)
+        {
+            WinGame();
         }
     }
 
     private void WinGame()
     {
+        // Set player win flag
         hasPlayerWon = true;
 
-        // Show the "You Win" text
-        if (winText != null)
+        // Load the win_screen scene
+        SceneManager.LoadScene("win_screen");
+
+        // Disable character controller and enable mouse cursor
+        if (characterControllerManager != null)
         {
-            winText.text = "You Win!";
-            winText.gameObject.SetActive(true);
+            characterControllerManager.DisableCharacterController();
+            characterControllerManager.EnableMouseCursor();
         }
-
-        // Show the Restart button
-        if (restartButton != null)
-        {
-            restartButton.gameObject.SetActive(true);
-            restartButton.onClick.AddListener(RestartGame); // Add listener for the button click
-        }
-
-        // // Disable mouse look in the character controller script
-        // if (characterControllerScript != null)
-        // {
-        //     characterControllerScript.enabled = false;
-        // }
-    }
-
-    // Method to be called when the button is clicked
-    public void RestartGame()
-    {
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
