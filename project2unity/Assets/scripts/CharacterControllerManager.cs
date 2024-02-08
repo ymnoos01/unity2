@@ -1,3 +1,101 @@
+// using UnityEngine;
+
+// public class CharacterControllerManager : MonoBehaviour
+// {
+//     public CharacterController characterController;
+
+//     void Start()
+//     {
+//         // Disable character controller on start
+//         if (characterController != null)
+//             characterController.enabled = false;
+
+//         // Enable mouse cursor
+//         Cursor.lockState = CursorLockMode.None;
+//         Cursor.visible = true;
+//     }
+
+//     public void DisableCharacterController()
+//     {
+//         if (characterController != null)
+//             characterController.enabled = false;
+//     }
+
+//     public void EnableMouseCursor()
+//     {
+//         // Enable mouse cursor
+//         Cursor.lockState = CursorLockMode.None;
+//         Cursor.visible = true;
+//     }
+
+//     public void EnableCharacterController()
+//     {
+//         // if (characterController != null)
+//         //     characterController.enabled = true;
+
+//         // Lock mouse cursor
+//         Cursor.lockState = CursorLockMode.Locked;
+//         Cursor.visible = false;
+//     }
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// using UnityEngine;
+
+// public class CharacterControllerManager : MonoBehaviour
+// {
+//     public CharacterController characterController;
+
+//     void Start()
+//     {
+//         // Disable character controller and show mouse cursor on start
+//         DisableCharacterController();
+//         EnableMouseCursor();
+//     }
+
+//     public void DisableCharacterController()
+//     {
+//         if (characterController != null)
+//             characterController.enabled = false;
+//     }
+
+//     public void EnableMouseCursor()
+//     {
+//         // Show mouse cursor
+//         Cursor.lockState = CursorLockMode.None;
+//         Cursor.visible = true;
+//     }
+
+//     public void EnableCharacterController()
+//     {
+//         if (characterController != null)
+//             characterController.enabled = true;
+
+//         // Hide mouse cursor
+//         Cursor.lockState = CursorLockMode.Locked;
+//         Cursor.visible = false;
+//     }
+// }
+
+
+
 using UnityEngine;
 
 public class CharacterControllerManager : MonoBehaviour
@@ -6,13 +104,9 @@ public class CharacterControllerManager : MonoBehaviour
 
     void Start()
     {
-        // Disable character controller on start
-        if (characterController != null)
-            characterController.enabled = false;
-
-        // Enable mouse cursor
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Disable character controller and show mouse cursor on start
+        DisableCharacterController();
+        EnableMouseCursor();
     }
 
     public void DisableCharacterController()
@@ -23,8 +117,18 @@ public class CharacterControllerManager : MonoBehaviour
 
     public void EnableMouseCursor()
     {
-        // Enable mouse cursor
+        // Show mouse cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void EnableCharacterController()
+    {
+        if (characterController != null)
+            characterController.enabled = true;
+
+        // Hide mouse cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

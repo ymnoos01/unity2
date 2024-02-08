@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class restart_game : MonoBehaviour
+public class SceneReloader : MonoBehaviour
 {
     public void ReloadSampleScene()
     {
