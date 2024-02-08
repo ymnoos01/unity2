@@ -44,7 +44,6 @@ using UnityEngine.SceneManagement;
 
 public class clipboard_selector : MonoBehaviour
 {
-    public CharacterControllerManager characterControllerManager;
 
     // Define variables for game state
     private static bool hasPlayerWon = false;
@@ -83,10 +82,10 @@ public class clipboard_selector : MonoBehaviour
         SceneManager.LoadScene("win_screen");
 
         // Disable character controller and enable mouse cursor
-        if (characterControllerManager != null)
-        {
-            characterControllerManager.DisableCharacterController();
-            characterControllerManager.EnableMouseCursor();
-        }
+        // if (characterControllerManager != null)
+        // {
+        //     characterControllerManager.DisableCharacterController();
+        //     characterControllerManager.EnableMouseCursor();
+        // }
     }
 }

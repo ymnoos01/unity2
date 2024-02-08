@@ -1,6 +1,6 @@
 // using UnityEngine;
 
-// public class CharacterControllerManager : MonoBehaviour
+// public class CursorManager : MonoBehaviour
 // {
 //     public CharacterController characterController;
 
@@ -59,7 +59,7 @@
 
 // using UnityEngine;
 
-// public class CharacterControllerManager : MonoBehaviour
+// public class CursorManager : MonoBehaviour
 // {
 //     public CharacterController characterController;
 
@@ -96,23 +96,20 @@
 
 
 
+
 using UnityEngine;
 
-public class CharacterControllerManager : MonoBehaviour
+public class CursorManager : MonoBehaviour
 {
-    public CharacterController characterController;
+    public bool shouldEnableCursor = false;
 
     void Start()
     {
-        // Disable character controller and show mouse cursor on start
-        DisableCharacterController();
-        EnableMouseCursor();
-    }
-
-    public void DisableCharacterController()
-    {
-        if (characterController != null)
-            characterController.enabled = false;
+        if(shouldEnableCursor) {
+            EnableMouseCursor();
+        } else {
+            DisableMouseCursor();
+        }
     }
 
     public void EnableMouseCursor()
@@ -122,11 +119,8 @@ public class CharacterControllerManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void EnableCharacterController()
+    public void DisableMouseCursor()
     {
-        if (characterController != null)
-            characterController.enabled = true;
-
         // Hide mouse cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
