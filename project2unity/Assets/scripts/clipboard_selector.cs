@@ -47,7 +47,7 @@ public class clipboard_selector : MonoBehaviour
 
     // Define variables for game state
     private static bool hasPlayerWon = false;
-    private static int requiredClipboards = 1;
+    private static int requiredClipboards = 3;
     private static int collectedClipboards = 0;
 
     private void OnTriggerEnter(Collider other)
