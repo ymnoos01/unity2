@@ -25,7 +25,5 @@ public class FlashlightController : MonoBehaviour
 
         // Enable/disable flashlight accordingly
         flashlight.enabled = isFlashlightOn;
-
-        // You can add additional effects or behavior here, like sound effects or animations
     }
 }
