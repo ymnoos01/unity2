@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1594349523455055139}
   - component: {fileID: 451961967405148866}
+  - component: {fileID: 3298625130502661047}
+  - component: {fileID: 2499663886599467387}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Spotlight
@@ -26,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2250423704339766461}
   serializedVersion: 2
   m_LocalRotation: {x: 0.019387204, y: -0, z: -0, w: 0.99981207}
-  m_LocalPosition: {x: -0.031000003, y: -0.13, z: 0.36099982}
-  m_LocalScale: {x: 1, y: 1, z: 4.4686427}
+  m_LocalPosition: {x: -0.031, y: -0.13, z: 0.36099982}
+  m_LocalScale: {x: 0.107926525, y: 1, z: 3.2319183}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 698313198330935399}
@@ -94,6 +96,39 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &3298625130502661047
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250423704339766461}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2499663886599467387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250423704339766461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d7a1dd3bb99e847878c0a172a1fad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6559314221516097490
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 6559314221516097490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.22}
+  m_LocalPosition: {x: 0, y: 0, z: 1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -138,8 +173,8 @@ GameObject:
   - component: {fileID: 4986554543813461405}
   - component: {fileID: 5125590895881342222}
   - component: {fileID: 4608547109596922659}
-  - component: {fileID: 2291047966353539766}
   - component: {fileID: 1331027180633542793}
+  - component: {fileID: 1351296826736097693}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Sphere
@@ -156,7 +191,7 @@ Transform:
   m_GameObject: {fileID: 7252425216558845252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19999981, y: 1.375, z: 3.49}
+  m_LocalPosition: {x: 0.19999981, y: 1.375, z: 5.316}
   m_LocalScale: {x: 1.2695, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,7 +247,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2291047966353539766
+--- !u!114 &1331027180633542793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252425216558845252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e65aaa19d861fd4c8abb8cbb73a9150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1351296826736097693
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,18 +280,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1331027180633542793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7252425216558845252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e65aaa19d861fd4c8abb8cbb73a9150, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7269657205507383260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,7 +346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914405152629629969, guid: 723c5f07ead48e4449814188455524d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
