@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class FlashlightController : MonoBehaviour
 {
-    public Light flashlight; // Reference to the flashlight light source
+    private Light flashlight; // Reference to the flashlight light source
     private bool isFlashlightOn = false;
+    private Collider myCollider; 
 
     void Start()
     {
-        flashlight.enabled = false; // Ensure flashlight is initially off
+        flashlight = GetComponent < Light > ();
+        myCollider = GetComponent < Collider > ();
+        flashlight.enabled = false;
+        myCollider.enabled = false;
     }
 
     void Update()
@@ -25,6 +29,16 @@ public class FlashlightController : MonoBehaviour
 
         // Enable/disable flashlight accordingly
         flashlight.enabled = isFlashlightOn;
+        myCollider.enabled = isFlashlightOn;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Sphere")) // Assuming the sphere has the tag "Sphere"
+        {
+            DeactivateSphere(other.gameObject); // Call the method to deactivate the sphere from FlashlightController
+            Debug.Log("Spotlight has entered the sphere collider."); // Debug log
+        }
     }
 
     public void DeactivateSphere(GameObject sphere)
@@ -34,6 +48,8 @@ public class FlashlightController : MonoBehaviour
         Debug.Log("Sphere is being deactivated."); // Debug log  
     }
 }
+
+
 
 // using UnityEngine;
 
